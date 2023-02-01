@@ -1,40 +1,37 @@
 import { Image, View , StyleSheet ,Text} from 'react-native'
 
-
 const styles = StyleSheet.create({
     menu: {
-      width: 35,
-      height: 35,
+      width: 33,
+      height: 33,
     },
     sort: {
-      width: 35,
-      height: 35,
-      left:50,
+      width: 28,
+      height: 28,
     },
     header :{
         flexDirection: 'row',
-        width: '95%',
-        top:5,
+        width: '100%',
         //marginLeft: 30,
         alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingBottom:15,
-        paddingTop:15,
+        paddingVertical: 15,
+        paddingHorizontal: 15,
         backgroundColor:'#151B24',
+        justifyContent: 'space-between'
     },
     title:{
-        paddingLeft: 5,
-        marginBottom: 4,
         fontWeight: 'bold',
-        fontSize:15,
+        fontSize: 16,
+        paddingLeft: 20,
         color:'white',
     },
     subtitle: {
         fontSize: 12
     },
     filter:{
-    width: 30,
-    height: 30,
+        width: 28,
+        height: 28,
+        marginLeft: 45
     }
   });
 
@@ -45,9 +42,8 @@ export function Navbar() {
                 <Image style={styles.menu} source={require('./img/menu.png')}></Image>
                 <Text style={styles.title}>Contactos y clientes</Text>
             </View>
-            <Image style={styles.sort} source={require('./img/sort.png')}></Image>
             <Image style={styles.filter} source={require('./img/filter.png')}></Image>
-
+            <Image style={styles.sort} source={require('./img/sort.png')}></Image>
         </View>
     )
 }

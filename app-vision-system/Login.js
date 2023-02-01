@@ -1,15 +1,29 @@
 import axios from 'axios';
 import { StatusBar } from 'expo-status-bar';
-import  { useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, Pressable, Image, Button } from 'react-native';
 import { Header } from './Header';
 
 export function Login({ navigation }){
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [empresa, setEmpresa] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [username, setUsername] = useState(7);
+  const [password, setPassword] = useState(0);
+  const [empresa, setEmpresa] = useState("TERRNZA");
+  const [busqueda, setBusqueda] = useState("");
+  const [medio,setMedio] = useState(0);
+  const [nicho,setNicho] = useState(0);
+  const [empresaid,setEmpresaid]=useState(0);
+  const [promocion,setPromocion]=useState(0);
+  const [fechapros1,serFechapros1]=useState("");
+  const [fechapros2,serFechapros2]=useState("");
+  const [revision1,setRevision1] = useState("");
+  const [revision2,setRevision2] = useState("");
+  const [imss,setImss] = useState("");
+  const [claveinter,setClaverinter] = useState("");
+  const [clavebanc,setClavebanc] = useState("");
+  const [instbanc,setInstbanc] = useState("");
+  const [prospecto,setProspecto] = useState(0);
+
 
   function req() {
     let xmls = `<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -43,6 +57,21 @@ function menu() {
   <soap:Body>
     <APP_GetClientesMovil xmlns="http://localhost/">
       <Empresa>${empresa}</Empresa>
+      <Busqueda>${busqueda}</Busqueda>
+      <IdEmpresa>${empresaid}}</IdEmpresa>
+      <IdMedio>${medio}</IdMedio>
+      <IdNicho>${nicho}</IdNicho>
+      <IdPromotor>${username}</IdPromotor>
+      <IdPromocion>${promocion}</IdPromocion>
+      <FechaDeProspectacion1>${fechapros1}</FechaDeProspectacion1>
+      <FechaDeProspectacion2>${fechapros2}</FechaDeProspectacion2>
+      <FechaDeRevision1>${revision1}</FechaDeRevision1>
+      <FechaDeRevision2>${revision2}</FechaDeRevision2>
+      <NumeroImss>${imss}</NumeroImss>
+      <ClabeInterbancaria>${claveinter}</ClabeInterbancaria>
+      <CuentaBancaria>${clavebanc}</CuentaBancaria>
+      <InstitucionBancaria>${instbanc}</InstitucionBancaria>
+      <TipoDeProspecto>${prospecto}</TipoDeProspecto>
     </APP_GetClientesMovil>
   </soap:Body>
 </soap:Envelope>`;
